@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'plexusPhotoEditor'
+
+    publishedGroupId = 'com.plexus'
+    libraryName = 'PlexusPhotoEditor'
+    artifact = 'plexusPhotoEditor'
+
+    libraryDescription = 'A Photo Editor library to edit image using paints,text,emoji and images'
+
+    siteUrl = 'https://github.com/PlexusInc/Plexus-Image-Editor'
+    gitUrl = 'https://github.com/PlexusInc/Plexus-Image-Editor'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'PlexusInc'
+    developerName = 'Plexus, Inc'
+    developerEmail = 'plexusincsa@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.plexus.photo_editor"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}
